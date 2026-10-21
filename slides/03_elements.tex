@@ -1,0 +1,58 @@
+% ======================================================================
+% CONTENT ELEMENTS
+% ======================================================================
+\section{Content elements}
+
+\begin{frame}[t]{Full-width figure}
+    \begin{figure}
+        \centering
+        \figureplaceholder[4.4cm]{Figure placeholder}
+        % \includegraphics[width=\linewidth,height=4.4cm,keepaspectratio]
+        %     {figures/your-figure.pdf}
+        \caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Table example}
+    \begin{table}
+        \centering
+        \begin{tabular}{lrrrr}
+            \toprule
+            & \multicolumn{2}{c}{\textbf{Group A}}
+            & \multicolumn{2}{c}{\textbf{Group B}} \\
+            \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+            \textbf{Item} & \textbf{Value 1} & \textbf{Value 2}
+                          & \textbf{Value 1} & \textbf{Value 2} \\
+            \midrule
+            Item 1 & 1.20 & 2.30 & 3.40 & 4.50 \\
+            \rowcolor{light-gray}
+            Item 2 & \textbf{2.10} & 3.20 & 4.30 & 5.40 \\
+            Item 3 & 3.00 & 4.10 & 5.20 & 6.30 \\
+            Item 4 & 3.90 & 5.00 & 6.10 & 7.20 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Dummy values for illustration.}
+    \end{table}
+\end{frame}
+
+\begin{frame}[t]{Equation example}
+    \textbf{Example heading}
+    \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    \end{itemize}
+    \begin{equation*}
+        y_i = \alpha + \beta x_i + \varepsilon_i
+    \end{equation*}
+    \begin{itemize}
+        \item Sed do eiusmod tempor incididunt ut labore et dolore.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Citation example}
+    \textbf{Example heading}
+    \begin{itemize}
+        \item Lorem ipsum dolor sit amet \parencite{example-article}.
+        \item Consectetur adipiscing elit \parencite{example-book}.
+    \end{itemize}
+    \blfootnote{\scriptsize Example note. Bibliography entries are fictional placeholders.}
+\end{frame}

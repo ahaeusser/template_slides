@@ -1,0 +1,62 @@
+% ======================================================================
+% PACKAGES
+% ======================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{references.bib}
+
+% ======================================================================
+% EXISTING DESIGN -- retained from the original slide deck
+% ======================================================================
+\usetheme{Boadilla}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+
+\AtBeginSection[]{%
+    \begin{frame}{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{items}[square]
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\definecolor{light-gray}{gray}{0.9}
+
+% ======================================================================
+% HELPERS -- layout conveniences, without theme or font changes
+% ======================================================================
+
+% Unnumbered footnote, used for the title-page contact address.
+\newcommand\blfootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
+
+% Usage: \figureplaceholder[height]{label}
+% Replace the entire command with \includegraphics[width=\linewidth]{...}.
+% The frame fits the current column width, including border and padding.
+\newcommand{\figureplaceholder}[2][3cm]{%
+    \fbox{%
+        \parbox[c][#1][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+            \centering #2\par
+        }%
+    }%
+}
