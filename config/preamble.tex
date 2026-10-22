@@ -19,15 +19,96 @@
 \addbibresource{references.bib}
 
 % ======================================================================
-% EXISTING DESIGN -- retained from the original slide deck
+% DESIGN -- Boadilla with a steel-blue primary color
 % ======================================================================
 \usetheme{Boadilla}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
 
+% Primary color: standard SteelBlue (#4682B4).
+% Structure controls headings, bullets, outline markers, and numbering.
+\definecolor{steelblue}{HTML}{4682B4}
+\setbeamercolor{structure}{fg=steelblue}
+\setbeamercolor{titlelike}{fg=steelblue}
+\setbeamercolor{block title}{fg=white,bg=steelblue}
+\setbeamercolor{block body}{fg=black,bg=steelblue!8!white}
+\hypersetup{colorlinks=true,linkcolor=steelblue,citecolor=steelblue,urlcolor=steelblue}
+
+% Frame headings: section label above the bold slide title.
+% The section label is automatic. An explicit \framesubtitle overrides it.
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\small,series=\mdseries}
+\setbeamercolor{framesubtitle}{fg=steelblue}
+\makeatletter
+\defbeamertemplate{frametitle}{section above title}[1][left]{%
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+        {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}%
+            \strut
+            \ifx\insertframesubtitle\@empty
+                \ifx\insertsectionhead\@empty
+                    Overview%
+                \else
+                    \insertsectionhead
+                \fi
+            \else
+                \insertframesubtitle
+            \fi
+            \strut\par}%
+        \vskip0.1em%
+        {\usebeamerfont{frametitle}\strut\insertframetitle\strut\par}%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi%
+    \end{beamercolorbox}%
+}
+\setbeamertemplate{frametitle}[section above title]
+\makeatother
+
+% Left-align every title-page field, retaining the existing fonts and spacing.
+\setbeamertemplate{title page}{%
+    \vbox{}\vfill
+    \begingroup
+        \raggedright
+        \begin{beamercolorbox}[sep=8pt,left]{title}
+            \usebeamerfont{title}\inserttitle\par
+            \ifx\insertsubtitle\empty\else
+                \vskip0.25em
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}%
+                    \insertsubtitle\par}%
+            \fi
+        \end{beamercolorbox}
+        \vskip1em\par
+        \begin{beamercolorbox}[sep=8pt,left]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[sep=8pt,left]{institute}
+            \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[sep=8pt,left]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}
+        {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+
+% Outline slides use the default title layout, without a section label.
+% The local group restores the section-above-title layout afterward.
+\newcommand{\outlineframe}[1][]{%
+    \begingroup
+        \setbeamertemplate{frametitle}[default]
+        \begin{frame}{Outline}
+            \tableofcontents[#1]
+        \end{frame}
+    \endgroup
+}
+
 \AtBeginSection[]{%
-    \begin{frame}{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}
+    \outlineframe[currentsection]
 }
 
 \setbeamertemplate{footline}[frame number]

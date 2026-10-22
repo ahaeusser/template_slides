@@ -1,0 +1,68 @@
+% ======================================================================
+% BLOCK EXAMPLES -- standard, example, and alert environments
+% ======================================================================
+\section{Blocks}
+
+\begin{frame}[t]{Standard blocks}
+    \begin{block}{Example heading}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        \begin{itemize}
+            \item Ut enim ad minim veniam, quis nostrud exercitation.
+            \item Duis aute irure dolor in reprehenderit in voluptate.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Additional heading}
+        Excepteur sint occaecat cupidatat non proident. Sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{Example and alert blocks}
+    \begin{exampleblock}{Example heading}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        \begin{itemize}
+            \item Sed do eiusmod tempor incididunt ut labore.
+            \item Ut enim ad minim veniam, quis nostrud exercitation.
+        \end{itemize}
+    \end{exampleblock}
+    \begin{alertblock}{Alert heading}
+        Duis aute irure dolor in reprehenderit in voluptate velit esse.
+        \begin{itemize}
+            \item Excepteur sint occaecat cupidatat non proident.
+            \item Sunt in culpa qui officia deserunt mollit anim.
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[t]{Blocks in columns}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.31\textwidth}
+            \begin{block}{Standard block}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                \begin{itemize}
+                    \item Sed do eiusmod tempor.
+                    \item Ut labore et dolore.
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \begin{exampleblock}{Example block}
+                Ut enim ad minim veniam, quis nostrud exercitation.
+                \begin{itemize}
+                    \item Duis aute irure dolor.
+                    \item In voluptate velit esse.
+                \end{itemize}
+            \end{exampleblock}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \begin{alertblock}{Alert block}
+                Excepteur sint occaecat cupidatat non proident.
+                \begin{itemize}
+                    \item Sunt in culpa officia.
+                    \item Deserunt mollit anim.
+                \end{itemize}
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}

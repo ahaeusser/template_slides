@@ -1,8 +1,9 @@
 # LaTeX Beamer slide template
 
 A reusable 16:9 template based on the original slide deck. The Boadilla
-theme, Latin Modern fonts, colors, square bullets, frame-number footer,
-caption styling, and automatic section outlines are retained.
+theme, Latin Modern fonts, square bullets, frame-number footer, caption
+styling, and automatic section outlines are retained. The title page is
+left-aligned, and the primary color is SteelBlue (`#4682B4`).
 
 ## Files
 
@@ -15,6 +16,7 @@ slides/
   01_basics.tex          Single-column bullets and numbered list
   02_columns.tex         Nine examples with two through five columns
   03_elements.tex        Figure, table, equation, and citation examples
+  blocks.tex             Standard, example, and alert block examples
   04_closing.tex         Summary, questions, and references
   05_appendix.tex        Additional material
 references.bib           Fictional bibliography placeholders
@@ -91,8 +93,22 @@ individual file in `slides/`. Repeat the complete build when changing the
 bibliography or sections so citations, outlines, and total frame counts
 update correctly.
 
-## Design changes later
+## Design settings
 
-The existing design settings are grouped in `config/preamble.tex`. Content
-and metadata can be edited independently of those settings. Section outline
+Design settings are grouped in `config/preamble.tex`. Change the
+`steelblue` color definition there to update the primary color. Standard
+blocks use a steel-blue header with a light body. Example and alert blocks
+keep the theme's green and red accents. The title-page template aligns the
+title, subtitle, author, affiliation, and date to the left.
+
+Each slide heading shows the current section in a smaller line above the
+bold frame title. For example, a slide in `\section{Basic slides}` with
+`\begin{frame}{Single-column layout}` automatically shows "Basic slides"
+above "Single-column layout". Outline slides show only the bold title
+"Outline", without a section label. Use `\outlineframe` for a full agenda
+and `\outlineframe[currentsection]` for a section agenda. The presentation
+title page keeps its separate layout. An optional `\framesubtitle{Custom label}` overrides the automatic
+section label for an individual frame.
+
+Content and metadata can be edited independently of those settings. Section outline
 slides still appear automatically, and appendix slides retain frame numbers.
