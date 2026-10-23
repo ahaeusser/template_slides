@@ -71,3 +71,118 @@
     \end{itemize}
     \blfootnote{\scriptsize Example note. Bibliography entries are fictional placeholders.}
 \end{frame}
+
+% Practical icon galleries: commands remain editable Font Awesome glyphs.
+\begin{frame}[t]{Icons for presentations}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.31\textwidth}
+            \textbf{Pros and cons}
+            \par\medskip
+            \iconexample{\faThumbsUp}{Pros}
+            \iconexample{\faThumbsDown}{Cons}
+            \iconexample{\faCheck}{Completed}
+            \iconexample{\faTimes}{Limitation}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Levels and trends}
+            \par\medskip
+            \iconexample{\faArrowUp}{High / increasing}
+            \iconexample{\faArrowRight}{Medium / stable}
+            \iconexample{\faArrowDown}{Low / decreasing}
+            \iconexample{\faChartLine}{Trend / results}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Comments and actions}
+            \par\medskip
+            \iconexample{\faComment}{Call-out / discussion}
+            \iconexample{\faExclamationTriangle}{Caution}
+            \iconexample{\faBullseye}{Research objective}
+            \iconexample{\faQuestionCircle}{Open question}
+        \end{column}
+    \end{columns}
+    \par\medskip
+    {\scriptsize
+        Inline: \texttt{\textbackslash faThumbsUp}\qquad
+        Bullet: \texttt{\textbackslash item[\textbackslash faThumbsUp]}\par
+    }
+    \par\medskip
+    {\scriptsize Icons: Font Awesome 5 (\texttt{fontawesome5}).\par}
+\end{frame}
+
+\begin{frame}[t]{Icons for research and programming}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.31\textwidth}
+            \textbf{Academic work}
+            \par\medskip
+            \iconexample{\faFile}{Paper / article}
+            \iconexample{\faBook}{Book / reference}
+            \iconexample{\faGraduationCap}{Teaching / degree}
+            \iconexample{\faFlask}{Experiment}
+            \iconexample{\faUsers}{Research team}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Programming}
+            \par\medskip
+            \iconexample{\faPython}{Python}
+            \iconexample{\faRProject}{R}
+            \iconexample{\faCode}{Source code}
+            \iconexample{\faTerminal}{Terminal / command}
+            \iconexample{\faDatabase}{Data / SQL}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Links and lists}
+            \par\medskip
+            \href{https://github.com/}{\faGithub\quad GitHub}
+            \par
+            {\scriptsize\texttt{\textbackslash faGithub}\par}
+            \smallskip
+            \href{https://www.linkedin.com/}{\faLinkedin\quad LinkedIn}
+            \par
+            {\scriptsize\texttt{\textbackslash faLinkedin}\par}
+            \smallskip
+            \href{https://orcid.org/}{\faOrcid\quad ORCID}
+            \par
+            {\scriptsize\texttt{\textbackslash faOrcid}\par}
+            \medskip
+            {\scriptsize\texttt{\textbackslash href\{URL\}\{ICON\}}\par}
+            \begin{itemize}
+                \item[\faCheck] Example icon bullet
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    \par\medskip
+    {\scriptsize Icons: Font Awesome 5 (\texttt{fontawesome5}).\par}
+\end{frame}
+
+% Verbatim listings require fragile. Keep the closing frame on its own line.
+% The wider right column leaves room for readable code without scaling.
+\begin{frame}[t,fragile]{Text and code}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.34\textwidth}
+            \textbf{Example workflow}
+            \begin{itemize}
+                \item Generate a reproducible sample dataset.
+                \item Fit a linear regression with \lstinline|lm()|.
+                \item Predict values for three new observations.
+            \end{itemize}
+            \medskip
+            Replace this example with your own analysis.
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \textbf{R example}
+\begin{lstlisting}[style=rcode,language=R]
+# Create example data
+set.seed(42)
+x <- seq_len(20)
+y <- 2 + 0.5 * x + rnorm(20)
+
+# Fit a linear model
+fit <- lm(y ~ x)
+
+# Predict three new values
+new_x <- data.frame(x = 21:23)
+predict(fit, newdata = new_x)
+\end{lstlisting}
+        \end{column}
+    \end{columns}
+\end{frame}

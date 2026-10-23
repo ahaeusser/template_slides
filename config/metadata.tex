@@ -4,9 +4,39 @@
 % ======================================================================
 \title[Short title]{\textbf{Presentation Title}}
 \subtitle{Presentation Subtitle}
-\author[Author Name]{Author Name%
-    \blfootnote{\tiny{\url{author@example.com}}}}
-\institute[]{Institution or Organization \\
-    Faculty or Department \\
-    Research Group or Team}
+% ======================================================================
+% FIRST AUTHOR -- fictional name and affiliation for illustration
+% ======================================================================
+\newcommand{\authoronename}{John Doe}
+\newcommand{\authoroneaffiliation}{Lindenford University \\
+    Faculty of Economics \\
+    Institute of Applied Statistics}
+\newcommand{\authoroneemail}{%
+    \href{mailto:john.doe@example.com}{\nolinkurl{john.doe@example.com}}}
+\newcommand{\authoronesociallinks}{%
+    \href{https://github.com/}{\faGithub}%
+    \hspace{0.5em}%
+    \href{https://www.linkedin.com/}{\faLinkedin}%
+    \hspace{0.5em}%
+    \href{https://orcid.org/}{\faOrcid}}
+
+% ======================================================================
+% SECOND AUTHOR -- independent fictional affiliation and profile links
+% ======================================================================
+\newcommand{\authortwoname}{Richard Roe}
+\newcommand{\authortwoaffiliation}{Westhaven Technical University \\
+    Faculty of Mathematics \\
+    Centre for Statistical Computing}
+\newcommand{\authortwoemail}{%
+    \href{mailto:richard.roe@example.org}{\nolinkurl{richard.roe@example.org}}}
+\newcommand{\authortwosociallinks}{%
+    \href{https://github.com/}{\faGithub}%
+    \hspace{0.5em}%
+    \href{https://www.linkedin.com/}{\faLinkedin}%
+    \hspace{0.5em}%
+    \href{https://orcid.org/}{\faOrcid}}
+
+% Standard Beamer metadata; the title-page layout uses the fields above.
+\author[\authoronename, \authortwoname]{\authoronename \and \authortwoname}
+\institute[]{\authoroneaffiliation \and \authortwoaffiliation}
 \date{\today} % Alternatively: \date{\today}

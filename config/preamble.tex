@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{sourcecodepro}
+\usepackage{listings}
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -13,16 +15,24 @@
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage{xcolor}
+\usepackage{fontawesome5}
 \usepackage{hyperref}
 
 \usepackage[backend=bibtex]{biblatex}
 \addbibresource{references.bib}
+
+% Reusable code style from the paper/thesis repositories.
+\input{config/listings}
 
 % ======================================================================
 % DESIGN -- Boadilla with a steel-blue primary color
 % ======================================================================
 \usetheme{Boadilla}
 \captionsetup{font=scriptsize,labelfont=scriptsize}
+
+% Larger fonts for the presentation title page only.
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large,series=\mdseries}
 
 % Primary color: standard SteelBlue (#4682B4).
 % Structure controls headings, bullets, outline markers, and numbering.
@@ -68,6 +78,17 @@
 \setbeamertemplate{frametitle}[section above title]
 \makeatother
 
+% One author column, with the email directly below the affiliation.
+% Arguments: name, affiliation, linked email, social icons.
+\newcommand{\titleauthor}[4]{%
+    {\usebeamerfont{author}#1%
+        \nobreak\hspace{0.5em}{\small #4}\par}%
+    \medskip
+    {\usebeamerfont{institute}#2\par}%
+    \medskip
+    {\scriptsize #3\par}%
+}
+
 % Left-align every title-page field, retaining the existing fonts and spacing.
 \setbeamertemplate{title page}{%
     \vbox{}\vfill
@@ -83,10 +104,17 @@
         \end{beamercolorbox}
         \vskip1em\par
         \begin{beamercolorbox}[sep=8pt,left]{author}
-            \usebeamerfont{author}\insertauthor
-        \end{beamercolorbox}
-        \begin{beamercolorbox}[sep=8pt,left]{institute}
-            \usebeamerfont{institute}\insertinstitute
+            \begin{minipage}[t]{0.48\linewidth}
+                \vspace{0pt}\raggedright
+                \titleauthor{\authoronename}{\authoroneaffiliation}%
+                    {\authoroneemail}{\authoronesociallinks}
+            \end{minipage}%
+            \hfill
+            \begin{minipage}[t]{0.48\linewidth}
+                \vspace{0pt}\raggedright
+                \titleauthor{\authortwoname}{\authortwoaffiliation}%
+                    {\authortwoemail}{\authortwosociallinks}
+            \end{minipage}
         \end{beamercolorbox}
         \begin{beamercolorbox}[sep=8pt,left]{date}
             \usebeamerfont{date}\insertdate
@@ -94,6 +122,13 @@
         {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
     \endgroup
     \vfill
+}
+
+% Title slide, using the same page-number-only footer as the other frames.
+\newcommand{\titleframe}{%
+    \begin{frame}
+        \titlepage
+    \end{frame}
 }
 
 % Outline slides use the default title layout, without a section label.
@@ -111,6 +146,7 @@
     \outlineframe[currentsection]
 }
 
+% Page numbers only; the date appears on the title page, not in footers.
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{items}[square]
@@ -123,7 +159,7 @@
 % HELPERS -- layout conveniences, without theme or font changes
 % ======================================================================
 
-% Unnumbered footnote, used for the title-page contact address.
+% Unnumbered footnote for additional notes on content slides.
 \newcommand\blfootnote[1]{%
     \begingroup
     \renewcommand\thefootnote{}\footnote{#1}%
@@ -140,4 +176,11 @@
             \centering #2\par
         }%
     }%
+}
+
+% Icon gallery row: render an icon and label, followed by its LaTeX command.
+\newcommand{\iconexample}[2]{%
+    \noindent\makebox[1.4em][l]{\textcolor{steelblue}{#1}}#2\par
+    {\scriptsize\texttt{\detokenize{#1}}\par}%
+    \smallskip
 }

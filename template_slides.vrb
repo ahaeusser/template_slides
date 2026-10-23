@@ -1,0 +1,29 @@
+\frametitle{Text and code}
+\begin{columns}[T,onlytextwidth]
+        \begin{column}{0.34\textwidth}
+            \textbf{Example workflow}
+            \begin{itemize}
+                \item Generate a reproducible sample dataset.
+                \item Fit a linear regression with \lstinline|lm()|.
+                \item Predict values for three new observations.
+            \end{itemize}
+            \medskip
+            Replace this example with your own analysis.
+        \end{column}
+        \begin{column}{0.62\textwidth}
+            \textbf{R example}
+\begin{lstlisting}[style=rcode,language=R]
+# Create example data
+set.seed(42)
+x <- seq_len(20)
+y <- 2 + 0.5 * x + rnorm(20)
+
+# Fit a linear model
+fit <- lm(y ~ x)
+
+# Predict three new values
+new_x <- data.frame(x = 21:23)
+predict(fit, newdata = new_x)
+\end{lstlisting}
+        \end{column}
+    \end{columns}

@@ -12,13 +12,14 @@ template_slides.tex       Main document and slide order
 config/
   metadata.tex           Title, subtitle, author, affiliation, contact, date
   preamble.tex           Packages, existing design, reusable helpers
+  listings.tex           Code-listing style shared with the thesis and papers
 slides/
   01_basics.tex          Single-column bullets and numbered list
   02_columns.tex         Nine examples with two through five columns
-  03_elements.tex        Figure, table, equation, and citation examples
-  blocks.tex             Standard, example, and alert block examples
-  04_closing.tex         Summary, questions, and references
-  05_appendix.tex        Additional material
+  03_elements.tex        Figure, table, equation, citation, icon, and code examples
+  04_blocks.tex          Standard, example, and alert block examples
+  05_closing.tex         Summary, questions, and references
+  06_appendix.tex        Additional material
 references.bib           Fictional bibliography placeholders
 figures/                 Location for your own image files
 ```
@@ -93,6 +94,62 @@ individual file in `slides/`. Repeat the complete build when changing the
 bibliography or sections so citations, outlines, and total frame counts
 update correctly.
 
+## Code listings
+
+The "Text and code" example in `slides/03_elements.tex` pairs explanatory
+text on the left with an R listing on the right. The `rcode` style in
+`config/listings.tex` is copied from `doctoral_thesis/config/formatting.tex`
+and matches the style in `echos_review` and `echos_benchmark`.
+
+Listings use Source Code Pro at `\footnotesize`, a light-gray background,
+no visible border, no line numbers, and no syntax coloring. They preserve
+indentation and wrap long lines. The `listings` and `sourcecodepro` packages
+must be available in your TeX installation.
+
+Frames containing a `lstlisting` environment must use `[fragile]`, as in
+`\begin{frame}[t,fragile]{Text and code}`. Keep `\end{frame}` on its own
+line. Select a different language with `language=Python`, for example, or
+reuse `style=rcode` with an external file via `\lstinputlisting`.
+Use `\lstinline|code|` for inline code with the same style.
+
+## Icons on content slides
+
+Two three-column icon galleries in `slides/03_elements.tex` demonstrate
+practical presentation and research uses. The first covers pros/cons,
+high/medium/low levels, trends, call-outs, cautions, objectives, and questions.
+The second covers papers, books, teaching, experiments, research teams,
+Python, R, source code, terminal commands, databases, and linked social icons.
+
+Each icon has a short label and its LaTeX command. The slides also demonstrate
+inline icons, custom bullet labels, and clickable links. Both slides identify
+Font Awesome 5 as the icon source. The `fontawesome5` package is already
+loaded in `config/preamble.tex`; `\iconexample{\faIconName}{Label}` adds a
+gallery row with its command displayed underneath.
+
+## Title-page authors and social links
+
+Two authors appear side by side in separate, left-aligned columns. Each
+column contains the author's name, social icons, individual affiliation,
+and a clickable email directly below the affiliation. Names and email
+addresses have no numeric markers or footnotes. John Doe and Richard Roe
+use fictional university, faculty, and institute placeholders.
+
+Edit the independent `authorone...` and `authortwo...` fields in
+`config/metadata.tex` to change names, affiliations, email addresses, and
+profile links. Both authors can also use the same affiliation if needed.
+
+Small Font Awesome 5 icons after each author name link to the general GitHub,
+LinkedIn, and ORCID websites. Edit the `\href` URLs in `config/metadata.tex` to
+point to your own profiles. The icons use the existing steel-blue link color.
+The `fontawesome5` package must be available in your TeX installation.
+The ORCID icon uses `\faOrcid`.
+
+## Slide footer
+
+Every slide shows only the current/total frame number at bottom-right.
+There is no footer date. The date from `config/metadata.tex` appears only
+in the main title-page layout.
+
 ## Design settings
 
 Design settings are grouped in `config/preamble.tex`. Change the
@@ -100,6 +157,9 @@ Design settings are grouped in `config/preamble.tex`. Change the
 blocks use a steel-blue header with a light body. Example and alert blocks
 keep the theme's green and red accents. The title-page template aligns the
 title, subtitle, author, affiliation, and date to the left.
+
+The title-page title uses `\huge` and the subtitle uses `\Large`. Their
+font sizes are configured separately from content-slide headings.
 
 Each slide heading shows the current section in a smaller line above the
 bold frame title. For example, a slide in `\section{Basic slides}` with

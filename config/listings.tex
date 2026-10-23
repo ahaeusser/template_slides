@@ -1,0 +1,31 @@
+% Code-listing style shared by doctoral_thesis, echos_review, and
+% echos_benchmark. Source Code Pro is loaded in preamble.tex.
+% Change language per listing; use fragile frames for inline lstlisting.
+\definecolor{codebg}{gray}{0.96}
+\definecolor{codeframe}{gray}{0.80}
+\definecolor{codecomment}{gray}{0.40}
+
+\lstdefinestyle{rcode}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  framerule=0pt,
+  framesep=0.75em,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  keywordstyle={},
+  commentstyle={},
+  stringstyle={},
+  numbers=none,
+  captionpos=b,
+  xleftmargin=0.5em,
+  xrightmargin=0.5em,
+  aboveskip=0.8em,
+  belowskip=0.8em
+}
+
+\lstset{style=rcode}
